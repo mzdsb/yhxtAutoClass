@@ -18,3 +18,5 @@ sympy==1.10.1
 typing-extensions==4.7.1
 Werkzeug==2.2.3
 zipp==3.15.0
+
+ddddocr~=1.5.5
