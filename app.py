@@ -4,7 +4,7 @@ from flask_cors import CORS  # 导入CORS
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/upload": {"origins": "https://zswxy.yinghuaonline.com"}}) # 启用CORS
+CORS(app, resources={r"/upload": {"origins": ["https://zswxy.yinghuaonline.com","https://swxygyxy.gongyixy.com","https://swxyzxshixun.canghuikeji.com"]}}) # 启用CORS
 # 定义验证码识别函数
 def recognize_captcha(image_bytes):
     ocr = ddddocr.DdddOcr()
