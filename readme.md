@@ -175,9 +175,9 @@ intervalId = setInterval(study, 10000);
 
 将代码放到篡改猴里面就行
 
-### 后端服务器识别验证码程序
+### 后端服务器识别验证码程序，在dist文件中运行app.exe就行
 
-点击run.bat就可运行
+点击run.bat就可运行（已经是过去式了。留作纪念）
 
 ![image-20241020122330578](./image-20241020122330578.png)
 
@@ -185,6 +185,15 @@ intervalId = setInterval(study, 10000);
 
 使用的flask服务器+ddddocr实现的验证码识别感兴趣可以去网上搜一下。
 
-
-
 ### run.bat好像是只有我自己能行，所以建议用pycharm打开app.py按照pycharm的报错提示下载依赖！镜像源一定要用清华的！！！（我帮同学搞就一直是网络问题）
+
+
+
+为了解决run.bat的问题我直接给项目打包
+
+中间遇到了找不到ddddocr依赖的问题
+
+pyinstaller -F -p d:\linshewai\python\flaskproject\helloworld\lib\site-packages app.py
+
+找到这个包的地址直接强行加上。
+
