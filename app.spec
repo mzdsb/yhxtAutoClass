@@ -8,7 +8,7 @@ a = Analysis(
     ['app.py'],
     pathex=['d:\\linshewai\\python\\flaskproject\\helloworld\\lib\\site-packages'],
     binaries=[],
-    datas=[],
+  datas=[('D:\\linSheWai\\python\\flaskProject\\helloWorld\\Lib\\site-packages\\ddddocr\\common_old.onnx', 'ddddocr')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
