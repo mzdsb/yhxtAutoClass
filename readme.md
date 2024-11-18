@@ -12,6 +12,8 @@
 // @description  修改的某位大佬的刷课插件
 // @author       TMT
 // @match        https://zswxy.yinghuaonline.com/user/*
+// @match        https://swxygyxy.gongyixy.com/user/*
+// @match        https://swxyzxshixun.canghuikeji.com/user/*
 // @grant        none
 // ==/UserScript==
 
@@ -137,12 +139,7 @@ setTimeout(() => {
 }
 
 function study() {
-     // 检查是否为最后一个课程
-    if (currentCourseIndex >= totalCourses - 1) {
-        console.log("所有课程已完成！");
-        clearInterval(intervalId); // 停止计时器
-        return;
-    }
+     
 
     // 检测是否为作业章节
     if (videoElements.length === 0) {
@@ -166,10 +163,23 @@ function study() {
         // 仅在未检测到验证码的情况下继续处理视频播放
         handleVideoPlayback(videoElements[0]);
     }
+
+    // 检查是否为最后一个课程
+    if (currentCourseIndex >= totalCourses -1) {
+        console.log("这是最后一节课");
+       if (videoElements.length > 0 && !videoElements[0].ended) {
+            handleVideoPlayback(videoElements[0]);
+            return;// 还未播放完最后一课，继续执行
+        } else {
+            console.log("所有课程已完成！");
+            clearInterval(intervalId); // 视频结束后停止计时器
+            return;
+        }
+    }
 }
 
-// 启动定时器，每10秒执行一次
-intervalId = setInterval(study, 10000);
+// 启动定时器，每8秒执行一次
+intervalId = setInterval(study, 8000);
 
 ```
 
@@ -177,7 +187,7 @@ intervalId = setInterval(study, 10000);
 
 ### 后端服务器识别验证码程序，在dist文件中运行app.exe就行
 
-点击run.bat就可运行（已经是过去式了。留作纪念）
+点击run.bat就可运行（**已经是过去式了。留作纪念**）
 
 ![image-20241020122330578](./image-20241020122330578.png)
 
@@ -189,7 +199,7 @@ run.bat好像是只有我自己能行，所以建议用pycharm打开app.py按照
 
 
 
-为了解决run.bat的问题我直接给项目打包
+为了解决run.bat的问题我直接给项目打包了，在dist包里面运行app.exe
 
 中间遇到了找不到ddddocr依赖的问题
 
